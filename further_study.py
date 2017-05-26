@@ -202,7 +202,7 @@ def custom_reverse(input_list):
 
     """
 
-    input_list[::-1]
+    input_list[:] = input_list[::-1]
 
 
 def custom_contains(input_list, value):
@@ -222,7 +222,10 @@ def custom_contains(input_list, value):
 
     """
 
-    return None
+    for item in input_list:
+        if item == value:
+            return True
+    return False
 
 
 def custom_equality(some_list, another_list):
@@ -240,8 +243,12 @@ def custom_equality(some_list, another_list):
         False
 
     """
-
-    return None
+    index = 0
+    for item in some_list:
+        if item != another_list[index]:
+            return False
+        index += 1
+    return True
 
 
 ##############################################################################
